@@ -1,0 +1,264 @@
+{
+
+    "station_styles":{
+        "ss0":{
+            "id" : "ss0", "name" : "Circle Station",
+
+            "geometry": "roundrect",
+            "construct":[
+                {
+                    "strokeStyle": "#000000",
+                    "fillStyle": "#ffffff",
+                    "lineWidth" : 20,
+
+                    "height": 40,
+                    "width": 20,
+                    "radius": 20
+                },
+                {
+                    "strokeStyle": "#000000",
+                    "fillStyle": "#ffffff",
+                    "lineWidth" : 5,
+
+                    "height": 20,
+                    "width": 10,
+                    "radius": 10
+                }
+            ]
+
+        },
+        "ss1":{
+            "id" : "ss1", "name" : "Interchange",
+
+            "geometry": "circle",
+            "construct":[
+                {
+                    "strokeStyle": "#000000",
+                    "lineWidth" : 1,
+
+                    "fillStyle": "#999999",
+                    "radius": 10
+                }
+
+            ]
+
+        }
+    },
+
+    "stations":[
+        {
+
+            "id":"sta0",
+            "name":"Tsuen Wan",
+            
+            "pivot":{ "x" : 100 , "y" : 100, "o": 0},
+            "rnodes":[
+                { "x" : 0 , "y" : 0, "o": 0}
+            ],
+
+            "features":[
+                {
+                    "type": "station",
+                    "use_id": "ss0",
+                    "target": 0
+                }
+            ]
+
+        },{
+
+            "id":"sta1",
+            "name":"Tai Wo Hau",
+            
+            "pivot":{ "x" : 200 , "y" : 100, "o": 0},
+            "rnodes":[
+                { "x" : 0 , "y" : 0, "o": 0}
+            ],
+
+            "features":[
+                {
+                    "type": "station",
+                    "use_id": "ss0",
+                    "target": 0
+                }
+            ]
+
+        },{
+
+            "id":"sta2",
+            "name":"Kwai Hing",
+            
+            "pivot":{ "x" : 300 , "y" : 100, "o": 0},
+            "rnodes":[
+                { "x" : 0 , "y" : 0, "o": 0}
+            ],
+
+            "features":[
+                {
+                    "type": "station",
+                    "use_id": "ss0",
+                    "target": 0
+                }
+            ]
+
+        },{
+
+            "id":"sta3",
+            "name":"Kwai Fong",
+            
+            "pivot":{ "x" : 300 , "y" : 100, "o": 0},
+            "rnodes":[
+                { "x" : 0 , "y" : 0, "o": 0}
+            ],
+
+            "features":[
+                {
+                    "type": "station",
+                    "use_id": "ss0",
+                    "target": 0
+                }
+            ]
+
+        },{
+
+            "id":"sta4",
+            "name":"Lai King",
+            
+            "pivot":{ "x" : 400 , "y" : 105, "o": 0},
+            "rnodes":[
+                { "x" : 0 , "y" : -5, "o": 0},
+                { "x" : 0 , "y" : 5, "o": 0}
+            ],
+
+            "features":[
+                {
+                    "type": "station",
+                    "use_id": "ss0",
+                    "target": 0
+                },
+                {
+                    "type": "station",
+                    "use_id": "ss0",
+                    "target": 1
+                }
+            ]
+
+        },{
+
+            "id":"sta5",
+            "name":"Mei Foo",
+            
+            "pivot":{ "x" : 500 , "y" : 100, "o": 0},
+            "rnodes":[
+                { "x" : 0 , "y" : 0, "o": 0}
+            ],
+
+            "features":[
+                {
+                    "type": "station",
+                    "use_id": "ss0",
+                    "target": 0
+                }
+            ]
+
+        },{
+
+            "id":"sta6",
+            "name":"Tsing Yi",
+            
+            "pivot":{ "x" : 380 , "y" : 150, "o": 135},
+            "rnodes":[
+                { "r" : -5, "theta": 135, "o": 0},
+                { "r" : 5, "theta": 135, "o": 0}
+            ],
+
+            "features":[
+                {
+                    "type": "station",
+                    "use_id": "ss0",
+                    "target": 0
+                },{
+                    "type": "station",
+                    "use_id": "ss0",
+                    "target": 1
+                }
+            ]
+
+        },{
+
+            "id":"sta7",
+            "name":"Sunny Bay",
+            
+            "pivot":{ "x" : 280 , "y" : 250, "o": 135},
+            "rnodes":[
+                { "r" : -5, "theta": 135, "o": 0},
+                { "r" : 5, "theta": 135, "o": 0}
+            ],
+
+            "features":[
+                {
+                    "type": "station",
+                    "use_id": "ss0",
+                    "target": 0
+                },{
+                    "type": "station",
+                    "use_id": "ss0",
+                    "target": 1
+                }
+            ]
+
+        },{
+
+            "id":"sta8",
+            "name":"Tung Chung",
+            
+            "pivot":{ "x" : 180 , "y" : 250, "o": 135},
+            "rnodes":[
+                { "r" : -5, "theta": 135, "o": 0}
+            ],
+
+            "features":[
+                {
+                    "type": "station",
+                    "use_id": "ss0",
+                    "target": 0
+                }
+            ]
+
+        }
+
+    ],
+
+    "lines":[
+        {
+
+            "id": "tun", "name": "Tung Chung Line",
+
+            "construct":[
+                {"strokeStyle": "#000000", "lineWidth": 13},
+                {"strokeStyle": "#ff0000", "lineWidth": 13}
+            ],
+
+            "paths":[
+                {
+                    "station_id" : "sta5",
+                    "index" : 1,
+                    "linkage": "diagonal",
+                    "linkage_prop":{
+                        "offset": 100
+                    }
+                },{
+                    "station_id" : "sta6",
+                    "index" : 0,
+                    "linkage": "direct"
+                }
+                ,{
+                    "station_id" : "sta7",
+                    "index" : 0,
+                    "linkage": "direct"
+                }
+
+                ]
+        
+        }
+    ]
+}

@@ -1,0 +1,106 @@
+{
+    "segment_styles":[
+        {
+            "id": "ln_0",
+            "name": "Red Line",
+
+            "strokeStyle": "#ff0000",
+            "thickness": 50
+        },
+        {
+            "id": "ln_1",
+            "name": "Green Line",
+
+            "color": "#00ff00",
+            "thickness": 30
+        }
+    ],
+
+    "station_styles":[
+        {
+            "id": "default",
+            "name": "default",
+
+            "fill_color": "#ffffff",
+            "border_color": "#000000",
+
+            "fill_size" : 5,
+            "border_size": 1,
+
+            "style": "dot"
+
+        }
+
+
+    ],
+
+    "nodespace":[
+        {
+            "id":"sta_0",
+            "name": "First Station",
+
+            "nodes":[
+                { "x" : 20 , "y" : 20 }
+            ],
+            "active": true
+        },
+        {
+            "id":"sta_1",
+            "name": "Second Station",
+
+            "nodes":[
+                { "x" : 70 , "y" : 20 },
+                { "x" : 70 , "y" : 40 }
+            ],
+            "active": true
+        },
+        {
+            "id":"sta_2",
+            "name": "Third Station",
+
+            "nodes":[
+                { "x" : 40 , "y" : 60 }
+            ],
+            "active": true
+        }
+    ],
+
+    "segments":[
+        {
+            "id":"seg_0",
+            "name":"segment_0",
+
+            "node0":{
+                "node_id": "sta_0",
+                "index": 0
+            },
+
+            "node1":{
+                "node_id": "sta_1",
+                "index": 0
+            },
+
+            "segment_style": "ln_0",
+            "segment_mode": "direct"
+
+        },
+        {
+            "id":"seg_1",
+            "name":"segment_1",
+
+            "node0":{
+                "node_id": "sta_1",
+                "index": 1
+            },
+
+            "node1":{
+                "node_id": "sta_2",
+                "index": 0
+            },
+
+            "segment_style": "ln_1",
+            "segment_mode": "direct"
+        }
+
+    ]
+}

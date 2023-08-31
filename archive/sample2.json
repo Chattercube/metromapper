@@ -1,0 +1,168 @@
+{
+
+    "station_styles":[
+        {
+            "id" : "ss0", "name" : "Default Station",
+
+            "geometry": "circle",
+            "construct":[
+                {
+                    "strokeStyle": "#000000",
+                    "lineWidth" : 1,
+
+                    "fillStyle": "#999999",
+                    "radius": 5
+                }
+
+            ]
+
+        },
+        {
+            "id" : "ss1", "name" : "Interchange",
+
+            "geometry": "circle",
+            "construct":[
+                {
+                    "strokeStyle": "#000000",
+                    "lineWidth" : 1,
+
+                    "fillStyle": "#999999",
+                    "radius": 10
+                }
+
+            ]
+
+        }
+    ],
+
+    "stations":[
+        {
+
+            "id":"sta0",
+            "name":"Reynolds",
+            
+            "pivot":{ "x" : 0 , "y" : 0, "o": 0},
+            "rnodes":[
+                { "x" : 0 , "y" : 0, "o": 0}
+            ],
+
+            "features":[
+                {
+                    "type": "station",
+                    "use_id": "ss0",
+                    "target": 0
+                }
+            ]
+
+        },
+        {
+
+            "id":"sta1",
+            "name":"Brandon",
+            
+            "pivot":{ "x" : 100 , "y" : 0, "o": 0},
+            "rnodes":[
+                { "x" : 0 , "y" : 0 , "o": 0}
+            ],
+
+            "features":[
+                {
+                    "type": "station",
+                    "use_id": "ss0",
+                    "target": 0
+                }
+            ]
+
+        },
+        {
+
+            "id":"sta2",
+            "name":"Manley",
+            
+            "pivot":{ "x" : 200 , "y" : 0, "o": 0},
+
+            "rnodes":[
+                { "x" : 0 , "y" : 0 , "o": 0},
+                { "x" : 0, "y" : 40 , "o": 0}
+            ],
+
+            "features":[
+                {
+                    "type": "station",
+                    "use_id": "ss0",
+                    "target": 0
+                },
+                {
+                    "type": "station",
+                    "use_id": "ss0",
+                    "target": 1
+                }
+            ]
+
+        }
+
+    ],
+
+    "lines":[
+        {
+            "id": "ls0", "name": "Red Line",
+
+            "construct":[
+                {"strokeStyle": "#000000", "lineWidth": 50},
+                {"strokeStyle": "#ff0000", "lineWidth": 40}
+            ],
+
+            "paths":[
+                [
+                    {
+                        "station_id" : "sta0",
+                        "index" : 0,
+                        "linkage": "direct"
+                    },
+                    {
+                        "station_id" : "sta1",
+                        "index" : 0,
+                        "linkage": "direct"
+                    },
+                    {
+                        "station_id" : "sta2",
+                        "index" : 0,
+                        "linkage": null
+                    }
+                ],
+                [
+                    {
+                        "station_id" : "sta1",
+                        "index" : 0,
+                        "linkage": "diagonal",
+                        "linkage-prop":{
+                            "parameter" : 0
+                        }
+                    },
+                    {
+                        "station_id" : "sta2",
+                        "index" : 1,
+                        "linkage": null
+                    }
+                ]
+            ]
+        
+        },
+        {
+            "id": "ls1", "name": "Green Line",
+
+            "construct":[
+                {"strokeStyle": "#000000", "lineWidth": 50},
+                {"strokeStyle": "#00ff00", "lineWidth": 40}
+            ]
+        },
+        {
+            "id": "ls2", "name": "Blue Line",
+
+            "construct":[
+                {"strokeStyle": "#000000", "lineWidth": 50},
+                {"strokeStyle": "#0000ff", "lineWidth": 40}
+            ]
+        }
+    ]
+}

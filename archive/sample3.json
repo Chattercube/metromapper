@@ -1,0 +1,311 @@
+{
+
+    "station_styles":{
+        "ss0":{
+            "id" : "ss0", "name" : "Circle Station",
+
+            "geometry": "roundrect",
+            "construct":[
+                {
+                    "strokeStyle": "#000000",
+                    "fillStyle": "#ffffff",
+                    "lineWidth" : 20,
+
+                    "height": 40,
+                    "width": 20,
+                    "radius": 20
+                },
+                {
+                    "strokeStyle": "#000000",
+                    "fillStyle": "#ffffff",
+                    "lineWidth" : 5,
+
+                    "height": 20,
+                    "width": 10,
+                    "radius": 10
+                }
+            ]
+
+        },
+        "ss1":{
+            "id" : "ss1", "name" : "Interchange",
+
+            "geometry": "circle",
+            "construct":[
+                {
+                    "strokeStyle": "#000000",
+                    "lineWidth" : 1,
+
+                    "fillStyle": "#999999",
+                    "radius": 10
+                }
+
+            ]
+
+        }
+    },
+
+    "stations":[
+        {
+
+            "id":"sta0",
+            "name":"Reynolds",
+            
+            "pivot":{ "x" : 100 , "y" : 100, "o": 0},
+            "rnodes":[
+                { "x" : 0 , "y" : 0, "o": 0}
+            ],
+
+            "features":[
+                {
+                    "type": "station",
+                    "use_id": "ss0",
+                    "target": 0
+                }
+            ]
+
+        },
+        {
+
+            "id":"sta1",
+            "name":"Brandon",
+            
+            "pivot":{ "x" : 100 , "y" : 400, "o": 0},
+            "rnodes":[
+                { "x" : 0 , "y" : 0 , "o": 0}
+            ],
+
+            "features":[
+                {
+                    "type": "station",
+                    "use_id": "ss0",
+                    "target": 0
+                }
+            ]
+
+        },
+        {
+
+            "id":"sta2",
+            "name":"Manley",
+            
+            "pivot":{ "x" : 100 , "y" : 700, "o": 0},
+
+            "rnodes":[
+                { "x" : 0 , "y" : 0 , "o": 0},
+                { "x" : 0, "y" : 50 , "o": 0}
+            ],
+
+            "features":[
+                {
+                    "type": "station",
+                    "use_id": "ss0",
+                    "target": 0
+                },
+                {
+                    "type": "station",
+                    "use_id": "ss0",
+                    "target": 1
+                }
+            ]
+
+        },
+        {
+
+            "id":"sta3",
+            "name":"Brandon",
+            
+            "pivot":{ "x" : 400 , "y" : 100, "o": 0},
+            "rnodes":[
+                { "x" : 0 , "y" : 0 , "o": 0}
+            ],
+
+            "features":[
+                {
+                    "type": "station",
+                    "use_id": "ss0",
+                    "target": 0
+                }
+            ]
+
+        },{
+
+            "id":"sta4",
+            "name":"Brandon",
+            
+            "pivot":{ "x" : 400 , "y" : 400, "o": 0},
+            "rnodes":[
+                { "x" : 0 , "y" : 0 , "o": 0}
+            ],
+
+            "features":[
+                {
+                    "type": "station",
+                    "use_id": "ss0",
+                    "target": 0
+                }
+            ]
+
+        },{
+
+            "id":"sta5",
+            "name":"Brandon",
+            
+            "pivot":{ "x" : 400 , "y" : 700, "o": 0},
+            "rnodes":[
+                { "x" : 0 , "y" : 0 , "o": 0}
+            ],
+
+            "features":[
+                {
+                    "type": "station",
+                    "use_id": "ss0",
+                    "target": 0
+                }
+            ]
+
+        },{
+
+            "id":"sta6",
+            "name":"Brandon",
+            
+            "pivot":{ "x" : 700 , "y" : 100, "o": 0},
+            "rnodes":[
+                { "x" : 0 , "y" : 0 , "o": 0}
+            ],
+
+            "features":[
+                {
+                    "type": "station",
+                    "use_id": "ss0",
+                    "target": 0
+                }
+            ]
+
+        },{
+
+            "id":"sta7",
+            "name":"Brandon",
+            
+            "pivot":{ "x" : 700 , "y" : 400, "o": 0},
+            "rnodes":[
+                { "x" : 0 , "y" : 0 , "o": 0}
+            ],
+
+            "features":[
+                {
+                    "type": "station",
+                    "use_id": "ss0",
+                    "target": 0
+                }
+            ]
+
+        },{
+
+            "id":"sta8",
+            "name":"Brandon",
+            
+            "pivot":{ "x" : 700 , "y" : 700, "o": 0},
+            "rnodes":[
+                { "x" : 0 , "y" : 0 , "o": 0}
+            ],
+
+            "features":[
+                {
+                    "type": "station",
+                    "use_id": "ss0",
+                    "target": 0
+                }
+            ]
+
+        }
+
+    ],
+
+    "lines":[
+        {
+            "id": "ls0", "name": "Red Line",
+
+            "construct":[
+                {"strokeStyle": "#000000", "lineWidth": 12},
+                {"strokeStyle": "#ff0000", "lineWidth": 13}
+            ],
+
+            "paths":[
+                [
+                    {
+                        "station_id" : "sta0",
+                        "index" : 0,
+                        "linkage": "diagonal",
+                        "linkage_prop":{
+                            "offset" : 200
+                        }
+                    },
+                    {
+                        "station_id" : "sta4",
+                        "index" : 0,
+                        "linkage": "diagonal",
+                        "linkage_prop":{
+                            "offset" : 200
+                        }
+                    },{
+                        "station_id" : "sta5",
+                        "index" : 0,
+                        "linkage": "diagonal",
+                        "linkage_prop":{
+                            "offset" : 200
+                        }
+                    },{
+                        "station_id" : "sta2",
+                        "index" : 0,
+                        "linkage": "diagonal",
+                        "linkage_prop":{
+                            "offset" : 200
+                        }
+                    },{
+                        "station_id" : "sta1",
+                        "index" : 0,
+                        "linkage": "diagonal",
+                        "linkage_prop":{
+                            "offset" : -100
+                        }
+                    },{
+                        "station_id" : "sta3",
+                        "index" : 0,
+                        "linkage": "diagonal",
+                        "linkage_prop":{
+                            "offset" : 100
+                        }
+                    },{
+                        "station_id" : "sta7",
+                        "index" : 0,
+                        "linkage": "diagonal",
+                        "linkage_prop":{
+                            "offset" : 10
+                        }
+                    },{
+                        "station_id" : "sta8",
+                        "index" : 0,
+                        "linkage": "diagonal",
+                        "linkage_prop":{
+                            "offset" : 200
+                        }
+                    }
+                ],
+                [
+                    {
+                        "station_id" : "sta0",
+                        "index" : 0,
+                        "linkage": "direct"
+                    },
+                    {
+                        "station_id" : "sta1",
+                        "index" : 0,
+                        "linkage": "direct"
+                    }
+                ]
+            ]
+        
+        }
+    ]
+}

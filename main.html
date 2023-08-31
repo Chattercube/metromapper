@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="main.css">
+
+<head>
+    <title>Metro-Mapper</title>
+</head>
+
+<body>
+    <div id="main_frame">
+        <canvas id="pf" width="1000px" height="800px"></canvas>
+        <div id="editor">
+            <div id="line_editor">
+                <h2>Lines</h2>
+                <button id="line_new">*</button>
+                <button id="line_delete">x</button>
+                <select id="line_select" size=1>
+                </select>
+                <div id="line_style_prop">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th colspan="2">Line Properties</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="prop_name">ID</td>
+                                <td><input id="line_ID_input" type="text"></input></td>
+                            </tr>
+                            <tr>
+                                <td class="prop_name">Name</td>
+                                <td><input id="line_name_input" type="text"></input></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <br></br>
+                <button id="construct_new">*</button>
+                <button id="construct_delete">x</button>
+                <select style="width:90%" id="construct_select" size="3"></select>
+                <button id="construct_shuffle_up">↑</button>
+                <button id="construct_shuffle_down">↓</button>
+                <table>
+                    <thead>
+                        <tr>
+                            <th colspan="2">Style Properties</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="prop_name">Style</td>
+                            <td><input id="construct_strokeStyle_input" type="color"></input><input style="width:20%"
+                                    id="construct_lineWidth_input" type="number"></input></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <br></br>
+                Branch:
+                <button id="branch_new">*</button>
+                <button id="branch_delete">x</button>
+                Node:
+                <button id="pathnode_new">*</button>
+                <button id="pathnode_delete">x</button>
+                <select style="width:90%" id="pathnode_select" size=5>
+                </select>
+                <button id="pathnode_shuffle_up">↑</button>
+                <button id="pathnode_shuffle_down">↓</button>
+                <button id="branch_shuffle_up">↑↑</button>
+                <button id="branch_shuffle_down">↓↓</button>
+                <div id="path_prop">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th colspan="2">Properties</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="prop_name">Station ID</td>
+                                <td><input style="width:70%" id="pathnode_sta_id_input" type="text"></input><input
+                                        style="width:10%" id="pathnode_index_input" type="text"></input></td>
+                            </tr>
+                            <tr>
+                                <td class="prop_name">Linkage</td>
+                                <td><select id="pathnode_linkage_select">
+                                        <option value="direct">Direct Connection</option>
+                                        <option value="diagonal">Diagonal Spline</option>
+                                    </select></td>
+                            </tr>
+                            <tr>
+                                <td class="prop_name">Linkage Properties</td>
+                                <td>
+                                    <input id="pathnode_prop_offset_input" type="text" placeholder="Offset"></input>
+                                    <input id="pathnode_prop_reverse_input" type="checkbox" title="Reverse"></input>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="station_editor">
+                <h2>Stations</h2>
+                <button id="station_new">*</button>
+                <button id="station_delete">x</button>
+                <select style="width:90%" id="station_select" size=8>
+                    <option>Alpha ("alp")</option>
+                    <option>Beta ("bet")</option>
+                </select>
+                <button id="station_shuffle_up">↑</button>
+                <button id="station_shuffle_down">↓</button>
+                <div id="station_prop">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th colspan="2">Properties</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="prop_name">ID</td>
+                                <td><input id="station_ID_input" type="text"></input></td>
+                            </tr>
+                            <tr>
+                                <td class="prop_name">Name</td>
+                                <td><input id="station_name_input" type="text"></input></td>
+                            </tr>
+                            <tr>
+                                <td class="prop_name">Pivot</td>
+                                <td>
+                                    <input style="width: 25%" id="station_pivot_x_input" placeholder="x" title="x"
+                                        type="number"></input>
+                                    <input style="width: 25%" id="station_pivot_y_input" placeholder="y" title="y"
+                                        type="number"></input>
+                                    <input style="width: 25%" id="station_pivot_o_input" placeholder="o" title="o"
+                                        type="number"></input>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="prop_name">rnodes</td>
+                                <td>
+                                    <select id="station_rnodes_select" style="width:100%" size="3">
+                                        <option>[0] x:100 ,y:20, o:0</option>
+                                        <option>[1] r:5 ,theta:20, o:30</option>
+                                    </select>
+                                    <input style="width: 25%" id="rnode_0_input" placeholder="x" title="x"
+                                        type="number"></input>
+                                    <input style="width: 25%" id="rnode_1_input" placeholder="y" title="y"
+                                        type="number"></input>
+                                    <input style="width: 25%" id="rnode_o_input" placeholder="o" title="o"
+                                        type="number"></input>
+                                    <button id="station_rnode_new">*</button>
+                                    <button id="station_rnode_delete">x</button>
+                                    <button id="station_rnode_convert">xy <-> rθ</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="prop_name">Features</td>
+                                <td>
+                                    <select id="station_features_select" style="width:100%" size="3">
+                                        <option>Circle Station [0]</option>
+                                        <option>Circle Station [1]</option>
+                                    </select>
+                                    <select id="station_add_style_select">
+                                        <optgroup id="station_add_style_optgroup" label="Stations">
+                                        </optgroup>
+                                    </select>
+                                    <button id="station_feature_new">*</button>
+                                    <button id="station_feature_delete">x</button>
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+            <div id="import_export">
+                <h2>Save and Load</h2>
+                <textarea style="width:90%" id="data_text"></textarea>
+                <button id="import_button">Import</button>
+                <button id="export_button">Export</button>
+            </div>
+        </div>
+
+
+    </div>
+</body>
+
+<script type="module" src="data.js"></script>
+<script type="module" src="maprenderer.js"></script>
+<script type="module" src="main.js"></script>

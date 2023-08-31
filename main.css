@@ -1,0 +1,105 @@
+#pf {
+    top: 5px; 
+    left: 5px;
+    /* position: absolute;  */
+    border:1px solid black; 
+    width: 1000px; 
+    height: 800px
+}
+
+#main_frame{
+    display: inline-flex;
+    width: 1400px;
+    height: 800px;
+}
+
+#station_editor{
+    height: auto;
+    width: 250px;
+
+    margin-left: 5px;
+    padding: 5px;
+    border:1px solid black;
+
+    box-sizing: border-box;
+    background-color: rgb(197, 197, 197);
+}
+
+#line_editor{
+    height: auto;
+    width: 250px;
+
+    margin-left: 5px;
+    padding: 5px;
+    border:1px solid black;
+
+    box-sizing: border-box;
+    background-color: rgb(160, 160, 160);
+}
+
+#import_export{
+    height: auto;
+    width: 250px;
+
+    margin-left: 5px;
+    padding: 5px;
+    border:1px solid black;
+
+    box-sizing: border-box;
+    background-color: rgb(0, 251, 54);
+}
+
+
+#editor{
+    width: 280px;
+    height: 800px;
+    overflow-y: scroll;
+}
+
+#tab_select{
+    font-size: 0.9rem;
+    width : 100%;
+    padding: auto;
+    text-align: center;
+}
+
+#element_select{
+    font-size: 0.9rem;
+    width : 100%;
+    padding: auto;
+}
+
+#line_select{
+    font-size: 0.9rem;
+    width : 100%;
+    padding: auto;
+}
+
+#branch_select{
+    font-size: 0.9rem;
+    width : 100%;
+    padding: auto;
+}
+
+button{
+    min-width:30px;
+}
+
+table{
+    width : 100%;
+}
+
+table,
+td {
+  border: 1px solid #333;
+}
+
+thead,
+tfoot {
+  background-color: #333;
+  color: #fff;
+}
+
+.prop_name{
+    width : 50px;
+}
