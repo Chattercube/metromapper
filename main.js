@@ -558,7 +558,14 @@ line_select_rae.enable();
             
             "construct": [],
 
-            "paths": [[]]
+            "paths": [[{
+                "station_id" : "new",
+                "index" : 0,
+                "linkage": "diagonal",
+                "linkage_prop":{
+                    "offset": 0,
+                    "reverse": false
+            }}]]
 
         }
 
@@ -644,7 +651,7 @@ line_select_rae.enable();
             "linkage": "diagonal",
             "linkage_prop":{
                 "offset": 0,
-                "reverse": true
+                "reverse": false
         }}];
 
         line_select_rae.getSelectedObject.paths.push(new_branch);
