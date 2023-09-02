@@ -1,7 +1,7 @@
-
-
 const pf = document.getElementById('pf');
 const ctx = pf.getContext("2d");
+
+// ctx.translate(500,500);
 
 function get_station_from_dp(data,datapoint){
     return data.stations.find((element)=>element.id == datapoint.station_id);
@@ -153,22 +153,30 @@ function draw_station(node, mode = null, ptr = null){
 
 function construct_map(data){
 
-    ctx.clearRect(0,0,pf.width, pf.height);
+    ctx.clearRect(0,0,2000, 2000);
 
     for (let line of data.lines){
+        if (typeof line == "undefined"){continue;}
         for(let cst of line.construct){
+            if (typeof cst == "undefined"){continue;}
             for(let path of line.paths){
+                if (typeof path == "undefined"){continue;}
 
                 ctx.strokeStyle = cst.strokeStyle;
                 ctx.lineWidth = cst.lineWidth;
                 ctx.beginPath();
 
+                if(typeof get_station_from_dp(data,path[0]) == "undefined") {continue;}
                 let init_position = get_node(data,path[0]);
                 ctx.moveTo(init_position.x, init_position.y);
 
                 for(let i = 0; i < path.length - 1; i++){
+
+                    if(typeof get_station_from_dp(data,path[i]) == "undefined" || typeof get_station_from_dp(data,path[i+1]) == "undefined") {continue;}
+
                     let dp0 = get_node(data,path[i]);
                     let dp1 = get_node(data,path[i+1]);
+
                     draw_segment(dp0, dp1, path[i].linkage, path[i].linkage_prop);
                 }
                 ctx.stroke();
@@ -177,11 +185,16 @@ function construct_map(data){
     }
 
     for (let station of data.stations){
+        if (typeof station == "undefined"){continue;}
+
         for(let feature of station.features){
+            if (typeof feature == "undefined"){continue;}
+
             if(feature.type == "station"){
 
                 let style = data.station_styles[feature.use_id];
                 let node = get_node(data,{"station_id": station.id, "index": feature.target});
+                if (typeof node == "undefined"){continue;}
 
                 if(style.geometry == "roundrect"){
                     for(let cst of style.construct){
@@ -194,6 +207,16 @@ function construct_map(data){
                         draw_station(node, style.geometry, cst);
                     }
                 }
+            }
+            if(feature.type == "nameLabel"){
+
+                let node = get_node(data,{"station_id": station.id, "index": feature.target});
+
+                ctx.font = "15px sans-serif";
+                ctx.fillStyle = "black";
+                ctx.textAlign = feature.textAlign;
+                ctx.fillText(station.name, node.x + feature.offsetx, node.y + feature.offsety)
+
             }
         }
     }
