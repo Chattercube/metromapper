@@ -132,7 +132,7 @@ let data2 = {
                     "type": "station",
                     "use_id": "ss0",
                     "target": 1
-                }
+                },
             ]
 
         },{
@@ -293,8 +293,17 @@ let data2 = {
             "features":[
                 {
                     "type": "station",
-                    "use_id": "ss0",
-                    "target": 0
+                    "target": 0,
+                    "use_id": "ss0"
+
+                },
+                {
+                    "type": "nameLabel",
+                    "target": 0,
+
+                    "offsetx": 0,
+                    "offsety": -20,
+                    "textAlign": "center"
                 }
             ]
 
