@@ -167,6 +167,7 @@ function construct_map(data){
                 ctx.beginPath();
 
                 if(typeof get_station_from_dp(data,path[0]) == "undefined") {continue;}
+                
                 let init_position = get_node(data,path[0]);
                 ctx.moveTo(init_position.x, init_position.y);
 
