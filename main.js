@@ -1,9 +1,11 @@
 import {data2} from "./data.js"
-import {construct_map} from "./maprenderer.js"
+import {construct_map} from "./render.js"
+// import { inv } from './math.js' 
+
 
 const pf = document.getElementById('pf');
 const ctx = pf.getContext("2d");
-ctx.translate(-500,0);
+ctx.transform(1,0,0,1,500,0)
 var data = data2;
 let translate_x = 0;
 let translate_y = 0;
@@ -978,6 +980,25 @@ function rebind(){
     line_select_rae.target = data.lines;
     station_add_style_select_ae = data.station_styles;
 
+
+}
+
+pf.addEventListener("mousemove", mouseMoved);
+
+function mouseMoved(event){
+    var canvasMouseX = event.clientX - (pf.offsetLeft - window.pageXOffset);
+    var canvasMouseY = event.clientY - (pf.offsetTop - window.pageYOffset);
+
+    const point = {x: canvasMouseX, y: canvasMouseY};
+    const matrix = ctx.getTransform();
+
+    const transformedPoint = {
+        x: point.x - matrix.a * matrix.e,
+        y: point.y - matrix.d * matrix.f,
+    };
+
+    // console.log(canvasMouseX, +" " + canvasMouseY);
+    console.log(transformedPoint.x + " " + transformedPoint.y);
 
 }
 

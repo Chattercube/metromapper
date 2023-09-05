@@ -7,6 +7,7 @@ let data2 = {
             "geometry": "roundrect",
             "construct":[
                 {
+                    "geometry": "roundrect",
                     "strokeStyle": "#000000",
                     "fillStyle": "#ffffff",
                     "lineWidth" : 2,
@@ -24,6 +25,7 @@ let data2 = {
             "geometry": "roundrect",
             "construct":[
                 {
+                    "geometry": "roundrect",
                     "strokeStyle": "#ffffff",
                     "fillStyle": "#000000",
                     "lineWidth" : 2,

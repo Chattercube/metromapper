@@ -102,10 +102,24 @@ function draw_segment(node0, node1, mode, ptr = null){
             }
         }
 
+        let path_segment = new Path2D();
+        // path_segment.moveTo(node0.x, node0.y);
+
         ctx.arcTo(node0.x, node0.y, nodei0.x, nodei0.y, 5);
+        path_segment.arcTo(node0.x, node0.y, nodei0.x, nodei0.y, 5);
+        
         ctx.arcTo(nodei0.x, nodei0.y, nodei1.x, nodei1.y, 5);
+        path_segment.arcTo(nodei0.x, nodei0.y, nodei1.x, nodei1.y, 5);
+        
         ctx.arcTo(nodei1.x, nodei1.y, node1.x, node1.y, 5);
-        ctx.lineTo(node1.x,node1.y)
+        path_segment.arcTo(nodei1.x, nodei1.y, node1.x, node1.y, 5);
+        
+        ctx.lineTo(node1.x,node1.y);
+        path_segment.lineTo(node1.x,node1.y);
+
+        // ctx.stroke(path)
+        return path_segment;
+
     }
     
 
@@ -156,31 +170,35 @@ function construct_map(data){
     ctx.clearRect(0,0,2000, 2000);
 
     for (let line of data.lines){
-        if (typeof line == "undefined"){continue;}
+        // if (typeof line == "undefined"){continue;}
         for(let cst of line.construct){
-            if (typeof cst == "undefined"){continue;}
+            // if (typeof cst == "undefined"){continue;}
+            let h = 0;
             for(let path of line.paths){
-                if (typeof path == "undefined"){continue;}
+                // if (typeof path == "undefined"){continue;}
 
                 ctx.strokeStyle = cst.strokeStyle;
                 ctx.lineWidth = cst.lineWidth;
+
                 ctx.beginPath();
 
-                if(typeof get_station_from_dp(data,path[0]) == "undefined") {continue;}
-                
+                // if(typeof get_station_from_dp(data,path[0]) == "undefined") {continue;}
+
                 let init_position = get_node(data,path[0]);
                 ctx.moveTo(init_position.x, init_position.y);
 
                 for(let i = 0; i < path.length - 1; i++){
 
-                    if(typeof get_station_from_dp(data,path[i]) == "undefined" || typeof get_station_from_dp(data,path[i+1]) == "undefined") {continue;}
+                    // if(typeof get_station_from_dp(data,path[i]) == "undefined" || typeof get_station_from_dp(data,path[i+1]) == "undefined") {continue;}
 
                     let dp0 = get_node(data,path[i]);
                     let dp1 = get_node(data,path[i+1]);
 
                     draw_segment(dp0, dp1, path[i].linkage, path[i].linkage_prop);
+                    console.log(line.name + " " + h + " " + i);
                 }
                 ctx.stroke();
+                h++;
             }
         }
     }
